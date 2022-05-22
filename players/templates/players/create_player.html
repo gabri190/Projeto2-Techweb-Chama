@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends "players/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="site">
+
+  <div class="header">
+    <img  class="logo" src="{% static 'players/img/logo-nba.png' %}">
+    <span class="title">Esta é uma API-free da NBA</span>
+  </div>
+  
+  <!-- <img  class="fundo" src="{% static 'players/img/fundo-nba.jpg' %}"> -->
+  
+  <main class="container">
+    
+   
+    <form class="form-card" method="post" >
+      {% csrf_token %}
+      
+      <input class="autoresize" name="player_id" type="text" placeholder="Digite um número de id para achar seu jogador?"/> 
+      
+      <button class="btn" type="submit">Criar</button>
+    
+    </form>
+    
+    <div class="card-container" method="post" >
+    {% for player in players %}
+      <div class="card">
+        <div class="card-names">
+          <h3 class="card-first-name">{{player.first_name}}</h3>
+          <h3 class="card-second-name">{{player.last_name}}</h3>
+        </div>
+        
+      
+      
+      <div class="card-position">
+        <h3 class="position">Position:{{player.position}}</h3>
+    </div>
+      
+      
+        <div class="card-team">
+          <h3 class="team-id">Id:{{player.player_id}}</h3>
+          <h3 class="team">{{player.team}}</h3>
+        </div>
+      
+        <form action="{% url 'delete' %}" class="card-delete" method="post">
+          {% csrf_token %}
+          
+          <button class="botao" type="submit" name="delete" value="{{player.id}}">Delete</button>
+        </form>
+      
+      </div>
+      
+      
+    
+    {% endfor %}
+    </div>
+  </main>
+
+  <footer>
+    <h3>Copyright © 2022 NBA Media Ventures, LLC. All rights reserved</h3>
+  </footer>  
+</div>
+{% endblock %}
+
+ 
+        
+
+   
+  
+
