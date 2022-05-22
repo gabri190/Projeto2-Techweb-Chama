@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pm4=&8f(5-9g4ytt1yj)*2$(&3pk&o7r#pa3+byjbv!367xctp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['infinite-thicket-66325.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['desolate-inlet-10230.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
